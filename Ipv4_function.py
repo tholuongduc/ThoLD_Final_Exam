@@ -96,6 +96,17 @@ def find_last_address(binary_ip, no_of_ones, no_of_zeros):
         bst_ip_address.append(str(int(each_octet, 2)))
     last_address = ".".join(bst_ip_address)
     return last_address
+#Check IP type: public or private IP
+def check_private(ip_address):
+    ip_octets = ip_address.split('.')
+    if ip_octets[0] == "10":
+        return True
+    elif ip_octets[0] == "172" and int(ip_octets[1]) in range(16,31):
+        return True
+    elif ip_octets[0] == "192" and ip_octets[1] == "168":
+        return True
+    else:
+        return False
 
 
 
